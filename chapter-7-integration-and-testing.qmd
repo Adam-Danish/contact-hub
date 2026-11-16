@@ -1,0 +1,82 @@
+# Integration, Testing, and Troubleshooting
+---
+
+**Sheduled time:** 4.30PM - 5.00PM
+
+**Primary focus:** Demonstrating that the complete system works and explaining technical decisions
+
+## Objective
+
+Verify the completed Directus–React integration. Directus already provides the backend API, so you are not required to create a separate REST API.
+
+The assessor must be able to follow a message from the React form into Directus and back into the React list.
+
+
+## Task 1 – End-to-End Demonstration
+
+Perform the following demonstration with the assessor:
+
+1. Start Directus and the React development server from a stopped state.
+2. Open the Contact and Feedback page.
+3. Show messages loaded from Directus.
+4. Submit a new valid message through the React form.
+5. Show the success state and the newly submitted message in the React list.
+6. Open Directus Data Studio and show the same stored record.
+
+Record the test message subject and resulting Directus item ID.
+
+| Item | Candidate response |
+|---|---|
+| Test subject | |
+| Directus item ID | |
+| Test result | Pass / Fail |
+
+
+## Task 2 – Functional Test Record
+
+Complete and execute the tests below.
+
+| Test | Expected result | Actual result | Pass? | Evidence reference |
+|---|---|---|:---:|---|
+| Initial message load | Records appear newest first | | ☐ |  |
+| Valid submission | Item stored and list updated | | ☐ | |
+| Missing required field | Inline validation shown; no item created | | ☐ |  |
+| Invalid email | Validation shown; no item created | | ☐ |  |
+| Empty collection/result | Empty state shown | | ☐ | |
+| Repeated submit click | Only one item created | | ☐ | |
+| Unauthorised update/delete | Request is denied | | ☐ |   |
+
+You may temporarily alter data, permissions, or configuration to create a test condition.
+
+
+## Task 3 – Browser and API Inspection
+
+Use browser developer tools to inspect at least one read request and one create request.
+
+For each, identify:
+
+- request method and URL;
+- relevant response data; and
+- whether sensitive information is exposed.
+
+Attach evidence with tokens, credentials, personal details, and other secrets removed.
+
+
+## Task 4 – Short Technical Explanation
+
+Be prepared to explain, without reading directly from your source code:
+
+- how the Directus SDK client is configured;
+- how a submitted form becomes a Directus item;
+- how the list is refreshed after submission;
+- why your access configuration is safe enough for this assessment; and
+- one improvement you would make before production deployment.
+
+
+## Integration Deliverables
+
+☐ Successful end-to-end demonstration  
+☐ Completed functional test record  
+☐ Read and create request evidence  
+☐ Troubleshooting notes  
+

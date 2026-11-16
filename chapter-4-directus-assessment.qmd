@@ -1,0 +1,151 @@
+# Directus CMS Setup and Data Modelling
+---
+
+**Scheduled time:** 10:30 AM – 12.30 PM
+
+**Primary focus:** Independent setup, data modelling, access control, and evidence
+
+## Objective
+
+Set up a **self hosted** working Directus project that will serve as the backend for a Contact and Feedback application. You are expected to find the appropriate Directus installation procedure from the official documentation <https://directus.com/docs/getting-started/overview>, and complete the setup with minimal assistance.
+
+The Directus project should use the MySQL database provided on the local PC. 
+
+Docker is also already installed is the PC and can be used if need be.
+
+The assessor will evaluate the working result, the quality of the data model, your security decisions, and the evidence you provide.
+
+
+## Scenario
+
+Website visitors should be able to submit a message. Staff should be able to view the messages and track their progress. A React application developed later will create and retrieve records through the Directus SDK.
+
+
+## Provided Development Environment
+
+The local PC already has MySQL Server installed and running.
+
+The assessor has created the database and provided the connection credentials below before the assessment begins. The candidate should use these details when configuring Directus.
+
+### MySQL Database Credentials 
+
+| Configuration item | Value |
+|---|---|
+| Database host | localhost |
+| Database port | 3306 |
+| Database user | root |
+| Database password | internship |
+| Database name | internship |
+
+MySQL Workbench has also been installed in the PC as a client for accessing the database
+server.
+
+
+## Task 1 – Install and Run Directus
+
+Create a new local Directus project, configure it to connect to the assessor-provided MySQL database, and start it successfully.
+
+Choose a suitable supported Directus installation method and document the method you selected. During configuration, select **MySQL** as the database client and use the credentials supplied above.
+
+### Required evidence
+
+- Screenshot of the running Directus login page or Data Studio, including the local project URL
+- Screenshot or text capture showing the successful startup output
+- A short note identifying the installation method and confirming that MySQL was used
+- A list of challenges encountered in case of any
+
+
+## Task 2 – Design and Create the Collection
+
+Create a collection with the key:
+
+`contact_messages`
+
+The collection must support the requirements below. You must decide the appropriate Directus field type, interface, default value, validation, and whether each field is required.
+
+| Field key | Business requirement |
+|---|---|
+| `id` | Unique record identifier |
+| `full_name` | Sender's name; required |
+| `email` | Sender's email address; required and validly formatted |
+| `company` | Sender's company; optional |
+| `phone` | Sender's phone number; optional |
+| `subject` | Message subject; required |
+| `category` | One of: Product Information, Technical Support, Sales, General Enquiry |
+| `message` | Multi-line message; required |
+| `status` | One of: New, In Progress, Resolved; new records default to New |
+| `date_created` | Automatically records when the item was created |
+
+Use clear human-readable labels in Data Studio. Add any sensible validation rules that improve data quality without preventing legitimate submissions.
+
+### Required evidence
+
+- Screenshot of the collection and all fields in Data Model
+- Screenshots showing the configuration of at least three important fields, including `category` or `status`
+
+
+## Task 3 – Configure Access Safely
+
+Configure the minimum access needed by the React application to:
+
+1. create a contact message; and
+2. retrieve the fields required by the message-list component.
+
+You must decide whether public access or an authenticated role is appropriate. Apply least privilege: the browser application must not receive administrator credentials, and website visitors must not be able to update or delete messages.
+
+If your list is accessible without authentication, do not expose private contact fields such as email address and phone number in the list response.
+
+### Required evidence
+
+- Screenshot(s) of the applicable access policy or permissions
+- A short explanation of what Create, Read, Update, and Delete access you allowed or denied
+- A statement explaining how private data and credentials are protected
+
+> The assessor may ask you to demonstrate that an allowed request succeeds and a disallowed request fails.
+
+
+## Task 4 – Create and Inspect Test Data
+
+Create at least five realistic records covering:
+
+- at least three categories;
+- at least two statuses; and
+- at least one record created through the Directus API or SDK rather than Data Studio.
+
+### Required evidence
+
+- Screenshot of the populated collection list
+- Screenshot of one complete item in Data Studio
+- Evidence of the API- or SDK-created item
+
+
+## Task 5 – Verify the Backend
+
+Using a method of your choice, demonstrate that the configured API can:
+
+- return the permitted message fields;
+- create a valid message;
+- reject or safely handle an invalid submission; and
+- prevent an unauthorised update or delete operation.
+
+Record the tool used, request performed, result, and relevant HTTP status code. Do not reveal secrets in the evidence.
+
+| Test | Expected outcome | Actual outcome | Status code | Pass? |
+|---|---|---|:---:|:---:|
+| Read messages | Permitted fields returned | | | ☐ |
+| Create valid message | Record created | | | ☐ |
+| Create invalid message | Rejected or validation shown | | | ☐ |
+| Update/delete without permission | Rejected | | | ☐ |
+
+
+Problems encountered
+
+## Directus Deliverables
+
+☑ Running Directus project  
+☐ Directus configured with the provided MySQL database  
+☐ `contact_messages` collection with configured fields  
+☐ Appropriate access policy or permissions  
+☐ ive or more records  
+☐ Installation, schema, permissions, and API-test evidence  
+☐ Short record of problems encountered and how they were resolved

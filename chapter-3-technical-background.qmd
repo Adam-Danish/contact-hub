@@ -1,0 +1,85 @@
+# Technical Background and Planning
+
+---
+
+**Scheduled time:** 10:15 AM–10:30 AM
+
+## Objective
+
+This chapter helps the assessor understand your current experience and how you plan a small full-stack project. 
+
+The practical assessment that follows is one connected project:
+
+> Build a Contact and Feedback application using Directus as the backend, Figma as the design specification, and React with the Directus SDK as the frontend.
+
+---
+
+## Working Rules
+
+- You may use official documentation and ordinary web searches.
+- You may use AI-assited development tools unless a task specifically states otherwise.
+- You may ask the assessor to clarify a business requirement.
+- Record important decisions and problems as you work.
+- Existing tutorials may be used for learning.
+
+---
+
+## Relevant Experience
+
+### Rate your current experience
+
+| Area | None | Beginner | Intermediate | Advanced |
+|---|:---:|:---:|:---:|:---:|
+| HTML and CSS | ☐ | ☐ | ☐ | ☐ |
+| JavaScript or TypeScript | ☐ |  ☐ | ☐ | ☐ |
+| React | ☐ | ☐ | ☐ | ☐ |
+| REST APIs | ☐ | ☐ | ☐ | ☐ |
+| SQL or data modelling | ☐ | ☐ | ☐ | ☐ |
+| Headless CMS platforms | ☐ | ☐ | ☐ | ☐ |
+| Figma | ☐ | ☐ | ☐ | ☐ |
+| Git | ☐ | ☐ | ☐ | ☐ |
+
+## Describe software project(s) you have completed.
+
+You can list the projects in the following format:
+
+## Project 1: AI Study Assistant {.unnumbered}
+
+
+### My Responsibilities{.unnumbered}
+
+
+### Technoligies Used {.unnumbered}
+
+
+### Challenges experienced {.unnumbered}
+
+
+### Solutions {.unnumbered}
+
+
+## Project 2: Expense Tracker {.unnumbered}
+
+
+### My Responsibilities{.unnumbered}
+
+
+### Technoligies Used {.unnumbered}
+
+
+### Challenges experienced {.unnumbered}
+
+
+### Solutions {.unnumbered}
+
+
+---
+
+## Candidate Comments
+
+Use this space for any additional information about your knowledge and experience that you would like the assessor to know.
+
+
+
+---
+

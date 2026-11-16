@@ -1,0 +1,116 @@
+# Company Introduction and Internship Overview 
+---
+
+**Scheduled time:** 10:00 AM–10:15 AM
+
+## Objective
+
+This chapter introduces NTS, the internship programme, and the technologies you will be working with throughout the internship.
+
+## About NTS
+
+NTS develops software solutions that support business operations, digital services, and customer-facing web applications. Our development team works with modern web technologies to build scalable, maintainable, and user-friendly systems.
+
+As an intern, you will become part of the software development team and contribute to real development projects under the guidance of experienced developers.
+
+
+## Company Projects
+
+### NTS Ecommerce Website
+
+Link <https://ntscomputers.com.my/>
+
+The primary commercial project is the NTS React webshop.
+
+The webshop includes functionality such as:
+
+- product catalogue
+- categories
+- product search
+- shopping cart
+- customer accounts
+- quotations
+- order processing
+- inventory integration
+- payment integration
+- backoffice administration
+
+During the internship you will work on a local development copy of this system.
+
+### N3DS Website
+
+Link <https://react.nts.nl/nts-3d/>
+
+The company maintains the N3DS website using a headless CMS architecture.
+
+The website is built using:
+
+- React
+- Directus CMS
+- Quarto
+- Typst
+- Markdown
+- REST APIs
+
+The website contains:
+
+- company information
+- project portfolio
+- technical documentation
+- educational material
+- product documentation
+- academic publications
+
+## Technologies Used
+
+During the internship you will be exposed to the following technologies.
+
+| Technology | Purpose |
+|------------|---------|
+| React | Frontend web development |
+| Directus | Headless Content Management System |
+| REST APIs | Communication between frontend and backend |
+| Figma | User interface design |
+| Git | Version control |
+| AI Tools | Code assistance and research |
+| Quarto | Technical documentation |
+
+What is mostly important is your willingness to learn, ask questions, and solve problems independently.
+
+## Internship Expectations
+
+During your internship you may be asked to:
+
+- Develop React user interfaces.
+- Configure and use Directus.
+- Consume and develop REST APIs.
+- Convert Figma designs into working web pages.
+- Work with Git repositories.
+- Use AI tools responsibly to improve productivity.
+- Produce clear technical documentation.
+
+Most work will be carried out on a local development environment before changes are reviewed by a supervisor.
+
+## Assessment Overview
+
+This assessment consists of several practical exercises that reflect typical tasks performed during the internship.
+
+The assessment is not intended to test whether you already know everything. Instead, it measures:
+
+- Your problem-solving approach.
+- Your ability to understand new technologies.
+- Your coding practices.
+- Your communication skills.
+- Your willingness to learn.
+
+## Handling Errors
+
+When a command fails:
+
+1. Copy the important part of the error.
+2. Record it under the related task.
+3. Explain what caused the problem.
+4. Explain how it was fixed.
+5. Add a screenshot when useful.
+
+

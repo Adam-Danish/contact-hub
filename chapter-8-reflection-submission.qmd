@@ -1,0 +1,83 @@
+# Final Reflection, Submission, and Assessment Criteria
+---
+
+**Scheduled time:** 5.00PM - 5.30PM
+
+## Objective
+
+Complete the project handover, reflect on your decisions, and ensure the assessor can run and review the work.
+
+
+## Submission Checklist
+
+| Deliverable | Completed |
+|---|:---:|
+| Technical background | ☐ |
+| Running Directus project and installation evidence | ☐ |
+| `contact_messages` collection and field evidence | ☐ |
+| Access policy/permission evidence| ☐ |
+| Sample data and API verification | ☐ |
+| Figma wireframe and desktop designs | ☐ |
+| Shareable Figma link | ☑ |
+| React source code | ☐ |
+| Directus SDK read and create integration | ☐ |
+| Desktop implementation screenshots | ☐ |
+
+
+## Source Code Submission
+
+Provide the location of your submitted source code or archive.
+
+**Repository/archive:** ______________________________________________
+
+Provide the Figma design URL.
+
+**Figma URL:**  _______________________________________________________
+
+
+## Candidate Reflection
+
+
+### Describe the biggest challenge you experienced during this assessment.
+
+What caused the challenge?
+
+How did you solve it?
+
+
+<br><br><br>
+
+### What AI tools did you use, and how did you incorporate them into your development workflow?
+
+<br><br><br>
+
+### What are you hoping to learn during your internship?
+
+<br><br><br>
+
+---
+
+## Feedback
+
+Please provide any further feedback about this assessment that you wpuld like the assessor to know.
+
+<br><br><br>
+
+## Assessor Notes
+
+The candidate demonstrated some effort during the technical assessment; however, their overall performance did not meet the expected level for the role.
+
+Time Management
+
+
+Technical Knowledge and Skills
+
+
+React Knowledge
+
+
+Overall Assessment
+
+
+Recommendation
+

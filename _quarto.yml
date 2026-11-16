@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "Software Development Internship"
+  chapters:
+    - index.qmd
+    - chapter-2-company-introduction.qmd
+    - chapter-3-technical-background.qmd
+    - chapter-4-directus-assessment.qmd
+    - chapter-5-figma-assessment.qmd
+    - chapter-6-react-assessment.qmd
+    - chapter-7-integration-and-testing.qmd
+    - chapter-8-reflection-submission.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap

@@ -1,0 +1,341 @@
+# Candidate Assessment Workbook {.unnumbered}
+
+## Candidate and Internship Details {.unnumbered}
+
+Complete these details before starting the assessment. Enter dates in **DD Month YYYY** format (for example, 02 November 2026). If your internship dates have not yet been confirmed, enter **To be confirmed**.
+
+| Detail | Candidate response |
+|:--|:--|
+| Full name | [Enter your full name] |
+| Age (years) | [Enter your age] |
+| Email address | [Enter your email address] |
+| Phone number | [Enter your phone number, including country code] |
+| Institution / university | [Enter your institution, if applicable] |
+| Course / programme | [Enter your course or programme, if applicable] |
+| Internship role | Software Development Intern |
+| Internship start date | [Enter the confirmed start date or To be confirmed] |
+| Internship end date | [Enter the confirmed end date or To be confirmed] |
+| Assessment date | [Enter the date you complete this assessment] |
+| Assessor | Daniel Mkony |
+
+---
+
+## 1. Internship Focus {.unnumbered}
+
+- React Development
+- Directus CMS
+- REST APIs
+- Figma UI Design
+- Time management
+- Technical Documentation
+
+---
+
+## 2. Instructions {.unnumbered}
+
+This assessment is intended to evaluate your suitability for the Software Development Internship at NTS.
+
+You are expected to complete your answers directly inside the provided .qmd files, include the requested evidence, and review the final rendered book before submission.
+
+**Time management is critical, make sure to adhere to the scheduled time for each section.**
+
+**You may use official documentation and AI-assisted development tools unless a task specifically states otherwise.**
+
+## 3. About Your Assessor {.unnumbered}
+
+Your assessor will be **Daniel Mkony** throughout this assessment. His role is to guide you, answer your questions, review your progress, and help you overcome technical challenges.
+
+**Microsoft Teams contact:** Daniel Mkony. Use Microsoft Teams to contact your assessor when you need clarification or technical support during the assessment.
+
+Daniel will be available during the assessment to clarify instructions and help you troubleshoot technical challenges, such as problems with the project setup, development tools, or access to required resources. If you need help, explain which task you are working on, describe the problem, and share any error messages and the steps you have already tried.
+
+His support will help you understand the requirements and work through obstacles. You are responsible for completing the tasks and submitting your own work; Daniel will provide guidance without completing the assessment for you.
+
+
+## 4. Project Location and Editing Instructions {.unnumbered}
+
+The complete Quarto assessment project is located in:
+
+```text
+C:\internship\software-development-internship
+```
+
+The project has already been opened in **Visual Studio Code**.
+
+Use the **Explorer** panel on the left side of VS Code to open and edit the assessment files.
+
+The main chapter files are:
+
+```text
+index.qmd
+chapter-2-company-introduction.qmd
+chapter-3-technical-background.qmd
+chapter-4-directus-assessment.qmd
+chapter-5-figma-assessment.qmd
+chapter-6-react-assessment.qmd
+chapter-7-integration-and-testing.qmd
+chapter-8-reflection-submission.qmd
+```
+
+Enter your answers directly below the relevant questions in each chapter.
+
+Save your work regularly using:
+
+```text
+Ctrl + S
+```
+
+## 5. How to Complete the Assessment {.unnumbered}
+
+### Use This Book as the Answer Sheet
+
+The candidate must edit this Quarto Book directly.
+
+For every task:
+
+1. Read the objective and instructions carefully.
+2. Complete the requested practical work.
+3. Write your answer directly in the relevant `.qmd` file.
+4. Add screenshots, source code, diagrams, tables, or other evidence where requested.
+5. Save the file.
+6. Review the updated page in the browser.
+7. Correct any formatting or content problems before moving to the next task.
+
+Do not delete the original questions or headings unless instructed to do so.
+
+Example:
+
+```markdown
+## Task 2.1 — Previous Projects {.unnumbered}
+
+### Answer {.unnumbered}
+
+I developed an IoT medicine cabinet using ESP32 and Firebase.
+
+### Technologies Used {.unnumbered}
+
+- ESP32
+- Firebase
+- Arduino IDE
+
+### Challenges {.unnumbered}
+
+The main challenge was unstable Wi-Fi connectivity.
+
+### Solution {.unnumbered}
+
+I added automatic reconnection logic.
+```
+
+## 6. Editing the Project in Vs Code
+
+1. Open the Project in Vs Code
+2. Select the extracted Quarto project folder.
+3. Confirm that `_quarto.yml`, `index.qmd` and all chapter files are visible.
+4. Open the chapter you are working on.
+5. Enter answers below the relevant task.
+
+## 7. Project File Structure {.unnumbered}
+
+```text
+software-development-internship/
+├── _quarto.yml
+├── index.qmd
+├── chapter-2-company-introduction.qmd
+├── chapter-3-technical-background.qmd
+├── chapter-4-directus-assessment.qmd
+├── chapter-5-figma-assessment.qmd
+├── chapter-6-react-assessment.qmd
+├── chapter-7-integration-and-testing.qmd
+├── chapter-8-reflection-submission.qmd
+└── screenshots/
+```
+
+## 8. Adding Screenshots {.unnumbered}
+
+Create a folder named:
+
+```text
+screenshots/
+```
+
+Save images using clear names, for example:
+
+```text
+screenshots/figma-login.png
+screenshots/figma-dashboard.png
+screenshots/blender-model.png
+screenshots/react-status-page.png
+```
+
+Insert a screenshot using:
+
+```markdown
+![Figma dashboard](screenshots/figma-dashboard.png)
+```
+
+## 9. Previewing the Book {.unnumbered}
+
+The Quarto preview is already running from the project directory.
+
+The current preview address is:
+
+```text
+http://localhost:[port]/
+```
+
+The command used to start the preview is:
+
+```powershell
+quarto preview
+```
+
+The PowerShell terminal shows:
+
+```text
+Watching files for changes
+```
+
+This means Quarto is monitoring the project files.
+
+When you edit and save a `.qmd` file, Quarto should rebuild the changed page and refresh the browser automatically.
+
+## 10. Refreshing the Browser {.unnumbered}
+
+After editing a chapter:
+
+1. Save the file using `Ctrl + S`.
+2. Return to the browser.
+3. Wait briefly for Quarto to rebuild the page.
+4. Check that your new answer appears correctly.
+
+When the page does not refresh automatically, use:
+
+```text
+Ctrl + R
+```
+
+For a full browser refresh, use:
+
+```text
+Ctrl + Shift + R
+```
+
+## 11. Restarting the Quarto Preview {.unnumbered}
+
+To stop the currently running preview, click inside the PowerShell terminal and press:
+
+```text
+Ctrl + C
+```
+
+To return to the project folder, run:
+
+```powershell
+cd C:\internship\software-development-internship
+```
+
+To start the preview again, run:
+
+```powershell
+quarto preview
+```
+
+After the preview starts, open the address shown in the terminal, normally:
+
+```text
+http://localhost:[port]/ 
+```
+
+The port number may be different after restarting. Always use the address displayed by Quarto in the terminal.
+
+## 12. Rendering the Final Book {.unnumbered}
+
+Before final submission, stop the preview using:
+
+```text
+Ctrl + C
+```
+
+Then generate the complete final book with:
+
+```powershell
+quarto render
+```
+
+This command builds all chapters and checks whether the project can be rendered successfully.
+
+If the render is successful, Quarto will place the generated website in the output folder configured in `_quarto.yml`.
+
+The output folder is normally one of the following:
+
+```text
+_site
+```
+
+or:
+
+```text
+_book
+```
+
+Open the generated folder and confirm that all expected HTML pages are present.
+
+## 13. Final Review Checklist {.unnumbered}
+
+Before publishing or submitting the assessment, confirm that:
+
+- [ ] Every required question has been answered.
+- [ ] All chapter files have been saved.
+- [ ] No placeholder text remains.
+- [ ] Images and screenshots display correctly.
+- [ ] Code blocks are readable and correctly formatted.
+- [ ] Links work.
+- [ ] Tables display correctly.
+- [ ] Required evidence has been added.
+- [ ] Personal or confidential information has not been included unnecessarily.
+- [ ] `quarto render` completes without errors.
+- [ ] The final website has been reviewed in the browser.
+
+## 14. Publishing the Book {.unnumbered}
+
+After completing and reviewing the assessment, start the Quarto publishing process with:
+
+```powershell
+quarto publish
+```
+
+Quarto will ask you to select or configure a publishing destination.
+
+When the project has already been configured for GitHub Pages, the publishing command may be:
+
+```powershell
+quarto publish gh-pages
+```
+
+Only publish the book after:
+
+1. completing all chapters;
+2. running `quarto render`;
+3. fixing all rendering errors;
+4. reviewing the final generated pages;
+5. receiving confirmation from the supervisor that publishing is required.
+
+## 15. Important Notes {.unnumbered}
+
+- Keep the PowerShell preview terminal open while editing.
+- Do not run several `quarto preview` commands at the same time.
+- Always save your file before checking the browser.
+- Do not edit files inside `_site` or `_book` because those folders contain generated output.
+- Edit only the source `.qmd`, YAML, image, and supporting project files.
+- If the terminal reports an error, read the filename and line number shown, correct the source file, save it, and run the command again.
+
+## 16. Begin the Assessment {.unnumbered}
+
+Start with:
+
+```text
+chapter-1-company-introduction.qmd
+```
+
+Continue through each chapter in order and complete the final submission chapter last.

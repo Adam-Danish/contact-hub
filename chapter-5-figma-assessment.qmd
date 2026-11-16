@@ -1,0 +1,87 @@
+# Contact and Feedback Interface Design (Figma)
+---
+
+**Scheduled time:** 1.30PM - 2.30PM
+
+**Primary focus:** A design that can be reproduced as working React components
+
+## Objective
+
+Design a clear Contact and Feedback page for the Directus collection created in the previous chapter. The page must contain two distinct components:
+
+1. a form for submitting a message; and
+2. a list for displaying messages retrieved from Directus.
+
+Both components may appear on the same page. Visual polish is useful, but component structure, usability, consistency, and implementability are more important than advanced graphic design.
+
+Sample screenshots are attached.
+
+![contact us form](screenshots/contact-us.png)
+
+![message list](screenshots/message-list.png)
+
+
+## Figma Workspace
+
+Use the following figma weorkspace:
+
+URL: <https://www.figma.com>
+
+Username: facturatie@nts.nl
+
+Password: Seinhuis15_
+
+Log into Figma and confirm that you can access the assigned project. Then create a new design.
+
+
+## Design Brief
+
+Create a desktop design for a page called **Contact and Feedback**.
+
+### Message form component
+
+Include controls corresponding to:
+
+- Full Name
+- Email Address
+- Company (optional)
+- Phone Number (optional)
+- Subject
+- Category
+- Message
+- Submit action
+- Clear or Reset action
+
+
+### Message list component
+
+Design a list, table, or card layout that shows data retrieved from Directus. It should display only fields appropriate for the access model chosen in Chapter 4, such as:
+
+- sender name;
+- subject;
+- category;
+- message or shortened preview;
+- status; and
+- submission date.
+
+
+## Task 1 – Mockup Wireframe
+
+Create a quick wireframe before the final design. It should show:
+
+- page hierarchy;
+- placement of the form and list;
+- desktop behaviour; and
+
+☐ Wireframe attached
+
+
+
+## Figma Deliverables
+
+☐ Shareable Figma link with appropriate access  
+☐ Mockup wireframe  
+☐ Desktop final designs  
+☐ Screenshot of the complete Figma page  
+
+

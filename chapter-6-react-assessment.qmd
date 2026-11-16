@@ -1,0 +1,120 @@
+# React and Directus SDK Implementation
+---
+
+**Scheduled time:** 2.30PM - 4:30PM 
+
+**Primary focus:** React structure, Directus SDK integration, data handling, and implementation
+
+## Objective
+
+Build the Contact and Feedback application designed in Figma. The application must use React and the official Directus SDK to create and retrieve records from the Directus project configured in Chapter 4.
+
+You must initialise the project yourself. The assessment provides required behaviour, not step-by-step commands.
+
+
+## Technical Constraints
+
+- Use React. JavaScript or TypeScript is acceptable.
+- Use the official `@directus/sdk` package.
+- Use the SDK's REST client for reading and creating collection items.
+- Store the Directus project URL in an environment variable.
+- The application should run using commands documented in its `README`.
+- Do not replace the Directus SDK integration with hard-coded sample data or browser-only storage.
+
+
+## Task 1 – Initialise and Structure the Project
+
+Create a new React project and organise it into sensible components and modules.
+
+Your solution should contain separate responsibilities for:
+
+- Directus client configuration;
+- message form;
+- message list;
+- page-level layout.
+
+Exact filenames and folder structure are your decision. Avoid placing the entire implementation in one component.
+
+### Required evidence
+
+- Screenshot of the application running locally
+- Screenshot or text capture of the successful development startup
+
+
+## Task 2 – Configure the Directus SDK
+
+Create one reusable Directus client configured from an environment variable. Define or document the `contact_messages` data shape used by the frontend.
+
+Demonstrate that your code uses the SDK to:
+
+- read multiple items from `contact_messages`; and
+- create a new item in `contact_messages`.
+
+The assessor should be able to find the client configuration and SDK request functions easily during code review.
+
+
+## Task 3 – Implement the Figma Design
+
+Reproduce your desktop Figma designs in React and CSS. The implementation should include:
+
+- the Contact and Feedback page layout;
+- the message form component;
+- the message list component;
+
+The final result should be recognisably based on the submitted Figma design.
+
+
+## Task 4 – Retrieve and Display Messages
+
+When the page loads, retrieve messages from Directus and display the permitted fields using the designed list component.
+
+Requirements:
+
+- show a visible loading state;
+- show an empty state when no records are returned;
+- show a useful error state if loading fails;
+- order messages newest first;
+- format the submission date for people to read; and
+- use stable identifiers as React list keys.
+
+Implement at least one useful list control from your Figma design, such as category filtering, status filtering, or sorting.
+
+
+## Task 5 – Create Messages
+
+Connect the form to Directus using the SDK.
+
+Requirements:
+
+- use controlled form fields or another clearly explained React form approach;
+- validate required fields and email format before submission;
+- prevent duplicate submissions while a request is in progress;
+- display a submission error without losing the user's entered data;
+- display success feedback after a successful submission;
+- clear the form only after success; and
+- update the visible message list without requiring a full browser refresh.
+
+The values sent by the form must match the collection field keys and category choices configured in Directus. The backend default should be used for `status` unless you justify another secure approach.
+
+
+## Task 6 – Code Quality and Configuration
+
+Your application should:
+
+- use meaningful names;
+- avoid unnecessary duplication;
+- include an `.env.example` containing placeholder configuration; and
+- include a concise `README` with setup, run, build, and configuration instructions.
+
+---
+
+## React Deliverables
+
+☐ Complete React source code  
+☐ Working Directus SDK client  
+☐ Responsive form and list matching Figma  
+☐ Read and create operations working against Directus  
+☐ Setup and run instructions in `README`  
+☐ Screenshots of desktop results
+
+
