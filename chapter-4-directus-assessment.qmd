@@ -54,6 +54,20 @@ Choose a suitable supported Directus installation method and document the method
 - A short note identifying the installation method and confirming that MySQL was used
 - A list of challenges encountered in case of any
 
+#### Answer {.unnumbered}
+
+![Running Directus Data Studio at http://127.0.0.1:8055](screenshots/directus-login-studio.png)
+
+![Directus Successful Startup Output](screenshots/directus-startup-output.png)
+
+**Installation Method & Database Confirmation:**
+- Scaffolded the local Directus project via Node.js CLI using `npx create-directus-project@latest contact-hub-cms` inside `C:\internship`, verified system prerequisites (`node`, `npm`, `git`, `docker`, `quarto`), and started the server on `http://127.0.0.1:8055`.
+- Configured the database client as **MySQL** connected to the local MySQL Server (`localhost:3306`, database `internship`, user `root`), confirmed by Directus bootstrapping all system and collection tables into the `internship` database.
+
+**Challenges Encountered:**
+1. **Initial MySQL Connection & Missing Environment Variables:** Directus failed to connect to MySQL initially because required database environment variables were missing. Resolved by creating and configuring the `.env` file with the exact MySQL connection parameters (`DB_CLIENT="mysql"`, `DB_HOST="localhost"`, `DB_PORT="3306"`, `DB_DATABASE="internship"`, `DB_USER="root"`, `DB_PASSWORD="internship"`).
+2. **Incomplete Schema Migration (`ALTER TABLE directus_settings` Failure):** An interrupted initial startup left partial Directus system tables in the `internship` schema, causing subsequent startup attempts to fail on `ALTER TABLE directus_settings`. Resolved by dropping and recreating a clean `internship` database in MySQL so Directus could execute all migrations cleanly from scratch.
+
 
 ## Task 2 – Design and Create the Collection
 
@@ -83,6 +97,29 @@ Use clear human-readable labels in Data Studio. Add any sensible validation rule
 - Screenshot of the collection and all fields in Data Model
 - Screenshots showing the configuration of at least three important fields, including `category` or `status`
 
+#### Answer {.unnumbered}
+
+![Data Model Overview for contact_messages](screenshots/directus-data-model.png)
+
+![Field Configuration – email (Regex Validation & Required)](screenshots/directus-field-email.png)
+
+![Field Configuration – category (Dropdown Choices)](screenshots/directus-field-category.png)
+
+![Field Configuration – status (Dropdown Choices & Default Value "New")](screenshots/directus-field-status.png)
+
+| Field key | Directus Type & Interface | Required | Default | Validation / Options |
+|---|---|---|---|---|
+| `id` | Generated UUID (Primary Key) | Auto | Auto | Unique primary key |
+| `full_name` | String (`input`) | Yes | — | Non-empty sender name |
+| `email` | String (`input`) | Yes | — | Regex validation (`^[^\s@]+@[^\s@]+\.[^\s@]+$`) |
+| `company` | String (`input`) | No | `NULL` | Optional organization name |
+| `phone` | String (`input`) | No | `NULL` | Optional contact phone number |
+| `subject` | String (`input`) | Yes | — | Non-empty message subject |
+| `category` | String (`select-dropdown`) | Yes | — | Choices: `Product Information`, `Technical Support`, `Sales`, `General Enquiry` |
+| `message` | Text (`input-multiline`) | Yes | — | Multi-line message body |
+| `status` | String (`select-dropdown`) | Yes | `New` | Choices: `New`, `In Progress`, `Resolved` |
+| `date_created` | Timestamp (`datetime`) | Auto | On Create | System-managed creation timestamp |
+
 
 ## Task 3 – Configure Access Safely
 
@@ -103,6 +140,26 @@ If your list is accessible without authentication, do not expose private contact
 
 > The assessor may ask you to demonstrate that an allowed request succeeds and a disallowed request fails.
 
+#### Answer {.unnumbered}
+
+![Public Access Policy Permissions](screenshots/directus-public-permissions.png)
+
+![Message List Reader Policy Permissions](screenshots/directus-reader-permissions.png)
+
+![Non-Admin Service User Account](screenshots/directus-active-users.png)
+
+**CRUD Access Explanation:**
+- **Public Policy (Anonymous Visitors):**
+  - **Create:** Allowed (`All Access`) so visitors can submit the Contact Us form without authentication.
+  - **Read:** Denied (`No Access`) so unauthenticated users cannot read or scrape submitted messages or private contact fields (`email` and `phone`).
+  - **Update & Delete:** Denied (`No Access`) so visitors cannot edit or delete existing submissions.
+- **Message List Reader Policy (Read-Only Service Account):**
+  - **Read:** Allowed (`All Access`) on `contact_messages`, queried with explicit non-private fields (`id`, `full_name`, `company`, `subject`, `category`, `message`, `status`, `date_created`).
+  - **Create, Update & Delete:** Denied (`No Access`) to enforce strict read-only least privilege.
+
+**Protection of Private Data and Credentials:**
+Directus Core gates custom field-level permission masking (*Use Custom* under Read) behind an upgraded license. To protect private `email` and `phone` fields without a commercial tier, unauthenticated `Read` access was completely disabled on the **Public** policy. Instead, a dedicated non-admin service user (`frontendreader@example.com`, with both *Admin Access* and *App Access* disabled) was assigned the read-only `Message List Reader` policy and issued a scoped static API token for the future React frontend. This ensures administrator credentials are never exposed in the browser, visitors cannot update or delete records, and private contact details are omitted from the message-list response.
+
 
 ## Task 4 – Create and Inspect Test Data
 
@@ -118,6 +175,14 @@ Create at least five realistic records covering:
 - Screenshot of one complete item in Data Studio
 - Evidence of the API- or SDK-created item
 
+#### Answer {.unnumbered}
+
+![Populated Contact Messages Collection (5+ Records Across 4 Categories and 3 Statuses)](screenshots/directus-populated-list.png)
+
+![Complete Contact Message Detail View in Data Studio](screenshots/directus-item-detail.png)
+
+![Record Created via Directus REST API (HTTP POST)](screenshots/directus-api-created-item.png)
+
 
 ## Task 5 – Verify the Backend
 
@@ -130,22 +195,35 @@ Using a method of your choice, demonstrate that the configured API can:
 
 Record the tool used, request performed, result, and relevant HTTP status code. Do not reveal secrets in the evidence.
 
+#### Answer {.unnumbered}
+
+**Tool & Endpoints Used:** Windows PowerShell (`Invoke-WebRequest`) targeting `http://127.0.0.1:8055/items/contact_messages` (all bearer tokens redacted from evidence).
+
+![API Read Verification (HTTP 200)](screenshots/directus-test-read.png)
+
+![API Validation Rejection Verification (HTTP 400)](screenshots/directus-test-invalid.png)
+
+![API Unauthorized Delete Verification (HTTP 403)](screenshots/directus-test-delete.png)
+
 | Test | Expected outcome | Actual outcome | Status code | Pass? |
 |---|---|---|:---:|:---:|
-| Read messages | Permitted fields returned | | | ☐ |
-| Create valid message | Record created | | | ☐ |
-| Create invalid message | Rejected or validation shown | | | ☐ |
-| Update/delete without permission | Rejected | | | ☐ |
+| Read messages | Permitted fields returned | `GET` with read-only service token returned JSON containing only the 8 permitted public fields (`email` and `phone` omitted) | 200 | ☑ |
+| Create valid message | Record created | Unauthenticated `POST` with valid JSON payload persisted the record in `contact_messages` (empty body returned since Public policy lacks `Read`) | 204 | ☑ |
+| Create invalid message | Rejected or validation shown | Unauthenticated `POST` with invalid email (`not-a-valid-email`) rejected with `FAILED_VALIDATION` error | 400 | ☑ |
+| Update/delete without permission | Rejected | Unauthenticated `DELETE /items/contact_messages/1` rejected with `FORBIDDEN` error | 403 | ☑ |
 
 
-Problems encountered
+**Problems encountered:**
+1. **Granular Field Permissions Restricted in Directus Core:** Clicking *Use Custom* under the Public policy's *Read* permission required an upgraded license. Resolved by disabling *Read* on the Public policy entirely (keeping Public as *Create*-only) and creating a separate `Message List Reader` policy paired with a non-admin service user (`frontendreader@example.com`) and scoped static API token.
+2. **Email Top-Level Domain Validation:** Directus rejected `.test` domains (`frontendreader@local.test`) when creating the service user; resolved by using `frontendreader@example.com`.
+
 
 ## Directus Deliverables
 
 ☑ Running Directus project  
-☐ Directus configured with the provided MySQL database  
-☐ `contact_messages` collection with configured fields  
-☐ Appropriate access policy or permissions  
-☐ ive or more records  
-☐ Installation, schema, permissions, and API-test evidence  
-☐ Short record of problems encountered and how they were resolved
+☑ Directus configured with the provided MySQL database  
+☑ `contact_messages` collection with configured fields  
+☑ Appropriate access policy or permissions  
+☑ Five or more records  
+☑ Installation, schema, permissions, and API-test evidence  
+☑ Short record of problems encountered and how they were resolved

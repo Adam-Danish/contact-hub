@@ -43,34 +43,50 @@ The practical assessment that follows is one connected project:
 
 You can list the projects in the following format:
 
-## Project 1: AI Study Assistant {.unnumbered}
+## Project 1: StallSeeker – Real-Time Android Food Stall Discovery Application {.unnumbered}
 
+### My Responsibilities {.unnumbered}
+- Developed the Android application frontend using Flutter and Dart for nearby food stall discovery, search, filters, and self-collect bookings.
+- Implemented customer and vendor features using Firebase Authentication, Firestore, and Storage for account access, menus, and stock management.
+- Integrated Google Maps and GPS for live vendor tracking/navigation and Stripe sandbox payments.
+- Created automated Android UI testing scripts using Appium, Python, and pytest with HTML reporting.
 
-### My Responsibilities{.unnumbered}
-
-
-### Technoligies Used {.unnumbered}
-
+### Technologies Used {.unnumbered}
+- Flutter & Dart
+- Firebase (Authentication, Cloud Firestore, Firebase Storage, Cloud Messaging, Cloud Functions)
+- Google Maps API & GPS
+- Stripe Sandbox API
+- Appium, Python, pytest
 
 ### Challenges experienced {.unnumbered}
-
+- Making the UI fit well on different screen sizes like web browsers, tablets, and phones without layout issues.
+- Fixing a navigation bug where going back to a previous page refreshed the whole screen and cleared the user's progress.
 
 ### Solutions {.unnumbered}
+- Adjusted the layout sizes and tested the app manually on different screen sizes and emulators.
+- Updated the page navigation and saved the page state so going back keeps the user's data without reloading everything.
 
 
 ## Project 2: Expense Tracker {.unnumbered}
 
+### My Responsibilities {.unnumbered}
+- Built the frontend user interface in Next.js for recording expenses, categorizing transactions, and viewing spending summaries.
+- Developed the backend REST API using NestJS to handle authentication, expense CRUD operations, and category filtering.
+- Connected the backend to a PostgreSQL database using Prisma ORM and designed the relational schema for users and expense records.
 
-### My Responsibilities{.unnumbered}
-
-
-### Technoligies Used {.unnumbered}
-
+### Technologies Used {.unnumbered}
+- Next.js (React)
+- NestJS
+- TypeScript
+- Prisma ORM
+- PostgreSQL
+- Git
 
 ### Challenges experienced {.unnumbered}
-
+- Coordinating the full-stack data flow between the Next.js frontend forms, NestJS API routes, Prisma ORM queries, and PostgreSQL tables, particularly handling authentication headers and keeping frontend/backend data types aligned.
 
 ### Solutions {.unnumbered}
+- Defined structured REST endpoints with DTO validation in NestJS and configured Prisma schema migrations so database models stayed consistent with the JSON payloads sent from the Next.js frontend.
 
 
 ---

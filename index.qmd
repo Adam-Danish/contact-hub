@@ -6,16 +6,16 @@ Complete these details before starting the assessment. Enter dates in **DD Month
 
 | Detail | Candidate response |
 |:--|:--|
-| Full name | [Adam Danish Bin Muhamad Azizi] |
-| Age (years) | [20] |
-| Email address | [adamdanish.mdazizi@gmail.com] |
-| Phone number | [601137932156, including country code] |
-| Institution / university | [German-Malaysian Institute (GMI)] |
-| Course / programme | [Diploma in Software Engineering] |
+| Full name | Adam Danish Bin Muhamad Azizi |
+| Age (years) | 20 |
+| Email address | adamdanish.mdazizi@gmail.com |
+| Phone number | +601137932156 |
+| Institution / university | German-Malaysian Institute (GMI) |
+| Course / programme | Diploma in Software Engineering |
 | Internship role | Software Development Intern |
-| Internship start date | [11 January 2027] |
-| Internship end date | [14 May 2027] |
-| Assessment date | [16 November 2026] |
+| Internship start date | 11 January 2027 |
+| Internship end date | 14 May 2027 |
+| Assessment date | 16 November 2026 |
 | Assessor | Daniel Mkony |
 
 ---
@@ -106,6 +106,7 @@ Do not delete the original questions or headings unless instructed to do so.
 Example:
 
 ```markdown
+
 ## Task 2.1 — Previous Projects {.unnumbered}
 
 ### Answer {.unnumbered}
@@ -126,6 +127,29 @@ The main challenge was unstable Wi-Fi connectivity.
 
 I added automatic reconnection logic.
 ```
+
+### Project 1: StallSeeker (Real-Time Android Food Stall Discovery Application) {.unnumbered}
+
+#### My Responsibilities {.unnumbered}
+- Developed the Android application frontend using Flutter and Dart for nearby food stall discovery, search, filters, and self-collect bookings.
+- Implemented customer and vendor features using Firebase Authentication, Firestore, and Storage for account access, menus, and stock management.
+- Integrated Google Maps and GPS for live vendor tracking/navigation and Stripe sandbox payments.
+- Created automated Android UI testing scripts using Appium, Python, and pytest with HTML reporting.
+
+#### Technologies Used {.unnumbered}
+- Flutter & Dart
+- Firebase (Authentication, Cloud Firestore, Firebase Storage, Cloud Messaging, Cloud Functions)
+- Google Maps API & GPS
+- Stripe Sandbox API
+- Appium, Python, pytest
+
+#### Challenges Experienced {.unnumbered}
+- Making the UI fit well on different screen sizes like web browsers, tablets, and phones without layout issues.
+- Fixing a navigation bug where going back to a previous page refreshed the whole screen and cleared the user's progress.
+
+#### Solutions {.unnumbered}
+- Adjusted the layout sizes and tested the app manually on different screen sizes and emulators.
+- Updated the page navigation and saved the page state so going back keeps the user's data without reloading everything.
 
 ## 6. Editing the Project in Vs Code
 

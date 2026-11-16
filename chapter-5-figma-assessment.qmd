@@ -23,7 +23,7 @@ Sample screenshots are attached.
 
 ## Figma Workspace
 
-Use the following figma weorkspace:
+Use the following figma workspace:
 
 URL: <https://www.figma.com>
 
@@ -65,23 +65,28 @@ Design a list, table, or card layout that shows data retrieved from Directus. It
 - submission date.
 
 
-## Task 1 – Mockup Wireframe
+## Task 1 – Wireframe
 
-Create a quick wireframe before the final design. It should show:
+### Answer {.unnumbered}
 
-- page hierarchy;
-- placement of the form and list;
-- desktop behaviour; and
+![Figma wireframe](screenshots/figma-wireframe.png)
 
-☐ Wireframe attached
+**Wireframe Structure & Layout Decisions:**
+- **Two-Column Desktop Grid:** Designed a desktop layout titled **Contact Hub** with a page subtitle, separating the **Send a message** form card on the left and the **Recent messages** feed on the right so users can submit inquiries and inspect live records side by side.
+- **Message Form Component:** Arranged all required and optional inputs (`Full name`, `Email address`, `Company (optional)`, `Phone (optional)`, `Subject`, `Category` dropdown, and multi-line `Message`) with required indicators (`*`) and paired `Send Message` (primary) and `Reset` (secondary) action buttons.
+- **Message List Component:** Structured stacked message cards with a category filter dropdown (`Category Filter: All`), displaying `Subject`, `Category`, `Status` (`New`, `In Progress`, `Resolved`), shortened message preview, sender name (`full_name`), and submission date (`date_created`), while strictly omitting private fields (`email` and `phone`) to match the `frontendreader` access policy from Chapter 4.
 
+
+## Task 2 – Polished High-Fidelity Design
+
+### Answer {.unnumbered}
+
+![Figma polished design](screenshots/figma-polished.png)
 
 
 ## Figma Deliverables
 
-☐ Shareable Figma link with appropriate access  
-☐ Mockup wireframe  
-☐ Desktop final designs  
-☐ Screenshot of the complete Figma page  
-
-
+- [ ] Shareable Figma link with appropriate access
+- [x] Mockup wireframe (`screenshots/figma-wireframe.png`)
+- [ ] Desktop final designs
+- [ ] Screenshot of the complete Figma page (`screenshots/figma-polished.png`)
