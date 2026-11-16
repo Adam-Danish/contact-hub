@@ -1,7 +1,7 @@
 # React and Directus SDK Implementation
 ---
 
-**Scheduled time:** 2.30PM - 4:30PM  
+**Scheduled time:** 2.30PM - 4:30PM 
 
 **Primary focus:** React structure, Directus SDK integration, data handling, and implementation
 
@@ -11,6 +11,7 @@ Build the Contact and Feedback application designed in Figma. The application mu
 
 You must initialise the project yourself. The assessment provides required behaviour, not step-by-step commands.
 
+
 ## Technical Constraints
 
 - Use React. JavaScript or TypeScript is acceptable.
@@ -19,6 +20,7 @@ You must initialise the project yourself. The assessment provides required behav
 - Store the Directus project URL in an environment variable.
 - The application should run using commands documented in its `README`.
 - Do not replace the Directus SDK integration with hard-coded sample data or browser-only storage.
+
 
 ## Task 1 – Initialise and Structure the Project
 
@@ -33,23 +35,27 @@ Your solution should contain separate responsibilities for:
 
 Exact filenames and folder structure are your decision. Avoid placing the entire implementation in one component.
 
+### Required evidence
+
 ### Answer {.unnumbered}
 
-The frontend application (`contact-hub-frontend`) was initialised using Vite and React (`@directus/sdk` installed via `npm`). The project separates concerns into distinct modules:
+The project was created with Vite (React, JavaScript) in `contact-hub-frontend`. Responsibilities are separated as follows:
 
-- **Directus client & API service:** `src/lib/directus.js` (or SDK configuration module) initializes the reusable REST client using `VITE_DIRECTUS_URL`.
-- **Page-level layout:** `src/App.jsx` and `src/App.css` coordinate page structure, state synchronization between form and list, and responsive layout.
-- **Message form component:** Handles controlled inputs, client-side validation, submission state, and error/success alerts.
-- **Message list component:** Handles fetching, category filtering, loading/empty/error states, and formatted display of `contact_messages`.
+| Responsibility | File |
+|---|---|
+| Directus client configuration | `src/lib/directus.js` |
+| SDK request functions | `src/api/messages.js` |
+| Message form | `src/components/MessageForm.jsx` |
+| Message list | `src/components/MessageList.jsx` |
+| Page-level layout and state | `src/pages/ContactPage.jsx` |
 
-### Required evidence
+![Application running locally](screenshots/react-app-running.png)
+
+![Successful development startup](screenshots/react-dev-startup.png)
 
 - Screenshot of the application running locally
 - Screenshot or text capture of the successful development startup
 
-![Contact Hub React application running locally](screenshots/react-app-running.png)
-
-![React development server and Directus backend startup output](screenshots/react-dev-startup.png)
 
 ## Task 2 – Configure the Directus SDK
 
@@ -64,43 +70,153 @@ The assessor should be able to find the client configuration and SDK request fun
 
 ### Answer {.unnumbered}
 
-A single reusable Directus client is configured from `import.meta.env.VITE_DIRECTUS_URL` using `createDirectus` and `rest()` from `@directus/sdk`.
+One reusable client is created in `src/lib/directus.js`. The Directus URL comes from the environment variable `VITE_DIRECTUS_URL`.
 
-#### Frontend `contact_messages` Data Shape
+```js
+import { createDirectus, rest } from "@directus/sdk";
 
-| Field Key | Type | Notes |
+export const directus = createDirectus(
+  import.meta.env.VITE_DIRECTUS_URL
+).with(rest());
+```
+
+`src/api/messages.js` contains the SDK requests:
+
+- `getMessages()` reads multiple items with `readItems("contact_messages", ...)`, requesting only the permitted fields and sorting by `-date_created`.
+- `createMessage(payload)` creates an item with `createItem("contact_messages", payload)`.
+
+### Data shape {.unnumbered}
+
+| Field | Type | Notes |
 |---|---|---|
-| `id` | `number` / `string` | Primary key used as stable React list key |
-| `full_name` | `string` | Required sender name |
-| `email` | `string` | Required sender email (write-only for public submissions) |
-| `company` | `string` (optional) | Sender organization |
-| `phone` | `string` (optional) | Sender phone number (write-only for public submissions) |
-| `subject` | `string` | Required message subject |
-| `category` | `string` | `Product Information`, `Technical Support`, `Sales`, or `General Enquiry` |
-| `message` | `string` | Required multi-line body |
-| `status` | `string` | Defaults to `New` in Directus |
-| `date_created` | `string` (ISO timestamp) | Auto-generated creation timestamp |
+| id | string | Used as the React key |
+| full_name | string | Required |
+| email | string | Required, validated; not requested by the list |
+| company | string or null | Optional |
+| phone | string or null | Optional; not requested by the list |
+| subject | string | Required |
+| category | string | Product Information, Technical Support, Sales, General Enquiry |
+| message | string | Required |
+| status | string | New, In Progress, Resolved; backend default is New |
+| date_created | string | Set automatically by Directus |
 
-#### SDK Client and Request Functions
+### Access {.unnumbered}
 
-```javascript
-import { createDirectus, rest, readItems, createItem } from '@directus/sdk';
+Choose one and delete the other.
 
-const directusUrl = import.meta.env.VITE_DIRECTUS_URL || 'http://localhost:8055';
+**Option A (Public role):** Visitors use the Public role, which can create messages and read only the safe fields. It cannot update or delete, so no credential is stored in the browser.
 
-export const directus = createDirectus(directusUrl).with(rest());
+**Option B (read-only token):** Creating messages uses the Public role, which allows create only. Reading uses a dedicated read-only user whose token is stored in `.env`. That user can read only the fields used by the list (not email or phone) and cannot update or delete. The token is visible to anyone who inspects the browser, so for production the read would go through a backend proxy or a public read-only policy.
 
-export async function fetchContactMessages() {
-  return await directus.request(
-    readItems('contact_messages', {
-      fields: ['id', 'full_name', 'company', 'subject', 'category', 'message', 'status', 'date_created'],
-      sort: ['-date_created'],
-    })
-  );
-}
+![Directus record created from the React form](screenshots/integration-backend-record.png)
 
-export async function createContactMessage(payload) {
-  return await directus.request(
-    createItem('contact_messages', payload)
-  );
-}
+![Read and create requests in browser developer tools](screenshots/api-inspection.png)
+
+
+## Task 3 – Implement the Figma Design
+
+Reproduce your desktop Figma designs in React and CSS. The implementation should include:
+
+- the Contact and Feedback page layout;
+- the message form component;
+- the message list component;
+
+The final result should be recognisably based on the submitted Figma design.
+
+### Answer {.unnumbered}
+
+The page follows the wireframe: a header, then two cards side by side. "Send a message" is on the left with placeholder-only fields, a dark Send button and a light Clear button. "Recent messages" is on the right with a category filter, a Refresh control and message cards showing the subject, sender and category, a shortened message preview, and the date and reference. The layout is responsive and stacks to one column below 1023px.
+
+![Figma wireframe](screenshots/figma-wireframe.png)
+
+![React implementation](screenshots/react-app-running.png)
+
+
+## Task 4 – Retrieve and Display Messages
+
+When the page loads, retrieve messages from Directus and display the permitted fields using the designed list component.
+
+Requirements:
+
+- show a visible loading state;
+- show an empty state when no records are returned;
+- show a useful error state if loading fails;
+- order messages newest first;
+- format the submission date for people to read; and
+- use stable identifiers as React list keys.
+
+Implement at least one useful list control from your Figma design, such as category filtering, status filtering, or sorting.
+
+### Answer {.unnumbered}
+
+`ContactPage` calls `getMessages()` when the page loads and passes the result to `MessageList`.
+
+- **Loading state:** "Loading messages..." is shown while the request runs.
+- **Empty state:** "No messages found" is shown when no records match.
+- **Error state:** the error from the SDK is shown in an alert.
+- **Order:** newest first, using `sort: ["-date_created"]` in the request.
+- **Date:** formatted with `toLocaleDateString`, for example Nov 16, 2026.
+- **Keys:** each card uses `item.id` as its React key.
+- **List control:** a category filter, plus a Refresh button.
+
+![Message list](screenshots/message-list.png)
+
+
+## Task 5 – Create Messages
+
+Connect the form to Directus using the SDK.
+
+Requirements:
+
+- use controlled form fields or another clearly explained React form approach;
+- validate required fields and email format before submission;
+- prevent duplicate submissions while a request is in progress;
+- display a submission error without losing the user's entered data;
+- display success feedback after a successful submission;
+- clear the form only after success; and
+- update the visible message list without requiring a full browser refresh.
+
+The values sent by the form must match the collection field keys and category choices configured in Directus. The backend default should be used for `status` unless you justify another secure approach.
+
+### Answer {.unnumbered}
+
+`MessageForm` uses controlled inputs held in React state.
+
+- **Validation:** Full Name, Email, Subject and Message are required, and the email format is checked before submission. Errors appear inline under the fields.
+- **Duplicate submissions:** the Send button is disabled while a request is in progress.
+- **Errors:** if the request fails, an error is shown and the entered data is kept.
+- **Success:** a "Message sent" confirmation appears, and the form is cleared only after success.
+- **List update:** after a successful create, the page reads the messages again, so the new item appears without a browser refresh.
+- **Payload:** the keys match the Directus field keys and category choices. `status` is not sent, so the backend default (New) applies.
+
+![Inline validation errors](screenshots/functional-validation-test.png)
+
+![Successful submission](screenshots/react-form-success.png)
+
+## Task 6 – Code Quality and Configuration
+
+Your application should:
+
+- use meaningful names;
+- avoid unnecessary duplication;
+- include an `.env.example` containing placeholder configuration; and
+- include a concise `README` with setup, run, build, and configuration instructions.
+
+### Answer {.unnumbered}
+
+- Components, functions and variables use descriptive names.
+- The category list and SDK requests are defined once and reused.
+- `.env.example` contains the placeholder `VITE_DIRECTUS_URL=http://localhost:8055`. The real `.env` is excluded from Git.
+- `README.md` documents installation (`npm install`), running (`npm run dev`), building (`npm run build`) and configuration.
+---
+
+## React Deliverables
+
+☐ Complete React source code  
+☐ Working Directus SDK client  
+☐ Responsive form and list matching Figma  
+☐ Read and create operations working against Directus  
+☐ Setup and run instructions in `README`  
+☐ Screenshots of desktop results
+
+

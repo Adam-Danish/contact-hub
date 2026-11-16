@@ -12,27 +12,27 @@ Complete the project handover, reflect on your decisions, and ensure the assesso
 
 | Deliverable | Completed |
 |---|:---:|
-| Technical background | ☐ |
-| Running Directus project and installation evidence | ☐ |
-| `contact_messages` collection and field evidence | ☐ |
-| Access policy/permission evidence| ☐ |
-| Sample data and API verification | ☐ |
-| Figma wireframe and desktop designs | ☐ |
+| Technical background | ☑ |
+| Running Directus project and installation evidence | ☑ |
+| `contact_messages` collection and field evidence | ☑ |
+| Access policy/permission evidence | ☑ |
+| Sample data and API verification | ☑ |
+| Figma wireframe and desktop designs | ☑ |
 | Shareable Figma link | ☑ |
-| React source code | ☐ |
-| Directus SDK read and create integration | ☐ |
-| Desktop implementation screenshots | ☐ |
+| React source code | ☑ |
+| Directus SDK read and create integration | ☑ |
+| Desktop implementation screenshots | ☑ |
 
 
 ## Source Code Submission
 
 Provide the location of your submitted source code or archive.
 
-**Repository/archive:** ______________________________________________
+**Repository/archive:** https://github.com/Adam-Danish/contact-hub
 
 Provide the Figma design URL.
 
-**Figma URL:**  https://www.figma.com/design/5VRPsxtu4H1j9jh0hbGLCy/Untitled?node-id=0-1&t=zbLFT9Seq65zev5C-1
+**Figma URL:** https://www.figma.com/design/5VRPsxtu4H1j9jh0hbGLCy/Untitled?node-id=0-1&t=zbLFT9Seq65zev5C-1
 
 
 ## Candidate Reflection
@@ -40,32 +40,34 @@ Provide the Figma design URL.
 
 ### Describe the biggest challenge you experienced during this assessment.
 
-What caused the challenge?
-
-How did you solve it?
+- **What caused the challenge?**
+  * **Technical issues:** At the start, Directus could not connect to the local SQL database. Later, during testing, messages submitted in React failed to save or sync to Directus because of CORS and `.env` setup errors.
+  * **Time limit:** Completing Directus, Figma, React, and the documentation within the scheduled hours was tight, especially when fixing setup errors.
+- **How did you solve it?**
+  * I used **Docker** to run the SQL database cleanly, enabled CORS in Directus, and fixed the token in the React `.env` file so messages synced properly.
+  * I broke each chapter into small steps and used AI tools to speed up debugging and styling so I could finish on time.
 
 
 <br><br><br>
 
 ### What AI tools did you use, and how did you incorporate them into your development workflow?
 
-<br><br><br>
+- **Gemini:** Used as my main guide from start to finish to plan the tasks in order, set up Directus and permissions, create the initial Figma wireframe layout, build the React components, and structure the Quarto documentation.
+- **Claude:** Used to clean up and restructure the React and CSS code, and to debug specific configuration issues such as the CORS error, Directus port conflict, and `.env` setup.
 
 ### What are you hoping to learn during your internship?
 
+As a final-year Diploma in Software Engineering student at German-Malaysian Institute (GMI), I am hoping to gain hands-on experience building and maintaining production web applications in a collaborative team environment. Specifically, I want to deepen my practical skills in modern frontend architecture (React) and containerized environments (Docker), from initial UI design through deployment.
 <br><br><br>
 
 ---
 
 ## Feedback
 
-Please provide any further feedback about this assessment that you wpuld like the assessor to know.
-
+I enjoyed this assessment because it let me explore new tools like Directus, Figma, and Quarto, and I adapted to them well throughout the tasks. The step-by-step flow from backend setup to frontend integration was clear and practical. One small suggestion is to add a short reminder in the setup guide about enabling CORS in Directus when connecting a local React app.
 <br><br><br>
 
 ## Assessor Notes
-
-The candidate demonstrated some effort during the technical assessment; however, their overall performance did not meet the expected level for the role.
 
 Time Management
 
@@ -80,4 +82,3 @@ Overall Assessment
 
 
 Recommendation
-
